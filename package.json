@@ -1,0 +1,22 @@
+{
+  "name": "chainpoint-proof-json-schema",
+  "version": "0.0.1",
+  "description": "A JSON Schema (Draft 04) validator for Chainpoint v3 Proofs",
+  "main": "index.js",
+  "repository": "https://github.com/chainpoint/chainpoint-proof-json-schema",
+  "author": "Glenn Rempe <glenn@tierion.com>",
+  "license": "MIT",
+  "dependencies": {
+    "is-my-json-valid": "^2.16.0"
+  },
+  "devDependencies": {
+    "browserify": "^14.3.0",
+    "mocha": "^3.2.0",
+    "should": "^11.2.1"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha -w",
+    "browser": "yarn bundle && open docs/index.html",
+    "bundle": "./node_modules/.bin/browserify --standalone chainpointProofSchema index.js -o docs/bundle.js"
+  }
+}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+
+<head>
+  <title>Chainpoint Proof (v3) JSON Schema Validation</title>
+</head>
+
+<body>
+  <h2>Chainpoint Proof (v3) JSON Schema Validation</h2>
+
+  <p>Paste in your own Chainpoint proof to validate, or try this sample.<br>The source code can be found at <a href="https://github.com/chainpoint/chainpoint-proof-json-schema">https://github.com/chainpoint/chainpoint-proof-json-schema</a></p>
+
+  <textarea id="proof" cols="120" rows="20">Enter text here...</textarea>
+  <br>
+  <input type="button" id="validateBtn" value="Validate">
+
+  <br>
+  <br>
+
+  <pre><code><span id="response"></span></code></pre>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="bundle.js"></script>
+  <script>
+    $('#proof').val('{}')
+
+    // load a full sample (will not work without web server using file:// url)
+    $.getJSON('samples/chainpoint-proof-v3.json', function (data) {
+      $('#proof').val(JSON.stringify(data, null, '    '))
+    });
+
+    $('#validateBtn').click(function( event ) {
+      var response = chainpointProofSchema.validate(JSON.parse($('#proof').val()))
+      console.log(response)
+      $('#response').html(JSON.stringify(response, null, '    '))
+    })
+  </script>
+</body>
+
+</html>
