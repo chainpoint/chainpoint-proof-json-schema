@@ -4,6 +4,10 @@ A simple npm package to validate a Chainpoint v3 Proof, in JSON format, against 
 
 Take a look here to learn more about [https://chainpoint.org](https://chainpoint.org)
 
+## IMPORTANT
+
+This package does *not* validate that the hashes in a proof are valid up to an anchor (e.g. BTC, ETH). In fact this package doesn't know what a hash is! It only validates that the proof you provide it with is a well formed proof according to its schema. Nothing more, nothing less.
+
 ## Try it out
 
 Test out the schema validation with a sample proof,
