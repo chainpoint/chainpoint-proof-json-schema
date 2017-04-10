@@ -37,7 +37,7 @@ const chainpointSchemaV3 = {
       'properties': {
         'type': {
           'description': 'A trust anchor',
-          'title': 'Concatenate value with left side of previous value',
+          'title': 'One of the known trust anchor types. Calendar (cal), Ethereum (eth), and Bitcoin (btc).',
           'type': 'string',
           'enum': ['cal', 'eth', 'btc']
         },
