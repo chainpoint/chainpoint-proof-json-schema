@@ -1,5 +1,5 @@
 {
-  "name": "@chainpoint/chainpoint-proof-json-schema",
+  "name": "chainpoint-proof-json-schema",
   "version": "0.0.1",
   "description": "A JSON Schema (Draft 04) validator for Chainpoint v3 Proofs",
   "main": "index.js",
