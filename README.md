@@ -1,5 +1,7 @@
 # Chainpoint Proof v3 JSON Schema Validator
 
+[![npm version](https://badge.fury.io/js/chainpoint-proof-json-schema.svg)](https://badge.fury.io/js/chainpoint-proof-json-schema)
+
 A simple npm package to validate a Chainpoint v3 Proof, in JSON format, against a JSON Schema (Draft 04).
 
 Take a look here to learn more about [https://chainpoint.org](https://chainpoint.org)
