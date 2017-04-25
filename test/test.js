@@ -100,6 +100,14 @@ describe('proof root', function () {
     done()
   })
 
+  it('should be invalid with ISO8601 date hash_submitted_at in non-strict millisecond granularity form', function (done) {
+    sampleProof['hash_submitted_at'] = '2017-04-25T19:10:07.171Z'
+    cps.validate(sampleProof).should.have.property('valid', false)
+    cps.validate(sampleProof).errors[0].should.have.property('field', 'data.hash_submitted_at')
+    cps.validate(sampleProof).errors[0].should.have.property('message', 'pattern mismatch')
+    done()
+  })
+
   it('should be invalid with missing branches at the root', function (done) {
     delete sampleProof['branches']
     cps.validate(sampleProof).should.have.property('valid', false)

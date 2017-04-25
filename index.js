@@ -128,9 +128,8 @@ const chainpointSchemaV3 = {
       'type': 'string'
     },
     'hash_submitted_at': {
-      'default': '2017-03-23T11:30:33Z',
-      'description': 'The timestamp, in ISO8601 form, extracted from the hash_id that represents the time the hash was submitted for anchoring.',
-      'pattern': '^\\d{4}(-\\d\\d(-\\d\\d(T\\d\\d:\\d\\d(:\\d\\d)?(\\.\\d+)?(([+-]\\d\\d:\\d\\d)|Z)?)?)?)?$',
+      'description': 'The timestamp, in ISO8601 form, extracted from the hash_id that represents the time the hash was submitted for anchoring. Must be in "2017-03-23T11:30:33Z" form with granularity only to seconds and UTC zone.',
+      'pattern': '^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$',
       'title': 'An ISO8601 timestamp, extracted from the hash_id',
       'type': 'string'
     },
