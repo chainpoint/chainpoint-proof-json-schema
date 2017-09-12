@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": "https://github.com/chainpoint/chainpoint-proof-json-schema",
   "author": "Glenn Rempe <glenn@tierion.com>",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "dependencies": {
     "is-my-json-valid": "^2.16.0"
   },
