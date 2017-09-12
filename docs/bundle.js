@@ -134,16 +134,28 @@ const chainpointSchemaV3 = {
       'title': 'The hash to be anchored',
       'type': 'string'
     },
-    'hash_id': {
-      'description': 'The Type 1 (timestamp) UUID used to identify and track a hash or retrieve a Chainpoint proof',
+    'hash_id_node': {
+      'description': 'The Type 1 (timestamp) UUID used to identify and track a hash or retrieve a Chainpoint proof from a Chainpoint Node',
       'pattern': '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$',
       'title': 'A Type 1 (timestamp) UUID that identifies a hash',
       'type': 'string'
     },
-    'hash_submitted_at': {
-      'description': 'The timestamp, in ISO8601 form, extracted from the hash_id that represents the time the hash was submitted for anchoring. Must be in "2017-03-23T11:30:33Z" form with granularity only to seconds and UTC zone.',
+    'hash_submitted_node_at': {
+      'description': 'The timestamp, in ISO8601 form, extracted from the hash_id_node that represents the time the hash was submitted to Chainpoint Node. Must be in "2017-03-23T11:30:33Z" form with granularity only to seconds and UTC zone.',
       'pattern': '^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$',
-      'title': 'An ISO8601 timestamp, extracted from the hash_id',
+      'title': 'An ISO8601 timestamp, extracted from hash_id_node',
+      'type': 'string'
+    },
+    'hash_id_core': {
+      'description': 'The Type 1 (timestamp) UUID used to by Chainpoint Node to identify and track a hash or retrieve a Chainpoint proof from Chainpoint Core',
+      'pattern': '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$',
+      'title': 'A Type 1 (timestamp) UUID that identifies a hash',
+      'type': 'string'
+    },
+    'hash_submitted_core_at': {
+      'description': 'The timestamp, in ISO8601 form, extracted from the hash_id_core that represents the time the hash was submitted to Chainpoint Core. Must be in "2017-03-23T11:30:33Z" form with granularity only to seconds and UTC zone.',
+      'pattern': '^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$',
+      'title': 'An ISO8601 timestamp, extracted from hash_id_core',
       'type': 'string'
     },
     'branches': {
@@ -154,7 +166,7 @@ const chainpointSchemaV3 = {
       'uniqueItems': true
     }
   },
-  'required': ['@context', 'type', 'hash', 'hash_id', 'hash_submitted_at', 'branches'],
+  'required': ['@context', 'type', 'hash', 'hash_id_node', 'hash_submitted_node_at', 'hash_id_core', 'hash_submitted_core_at', 'branches'],
   'title': 'Chainpoint v3 JSON Schema.',
   'type': 'object'
 }

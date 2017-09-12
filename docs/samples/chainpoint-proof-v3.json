@@ -2,8 +2,10 @@
   "@context": "https://w3id.org/chainpoint/v3",
   "type": "Chainpoint",
   "hash": "bdf8c9bdf076d6aff0292a1c9448691d2ae283f2ce41b045355e2c8cb8e85ef2",
-  "hash_id": "5cf0a860-0f52-11e7-947d-7fde4e7ca024",
-  "hash_submitted_at": "2017-03-23T11:30:33Z",
+  "hash_id_node": "5cf0a860-0f52-11e7-947d-7fde4e7ca024",
+  "hash_submitted_node_at": "2017-03-23T11:30:33Z",
+  "hash_id_core": "e6bf9cc1-67dd-11e7-af4a-e7bc0011940a",
+  "hash_submitted_core_at": "2017-07-13T15:14:02Z",
   "branches": [{
     "label": "root_branch",
     "ops": [{

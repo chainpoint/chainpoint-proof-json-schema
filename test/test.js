@@ -68,42 +68,82 @@ describe('proof root', function () {
     done()
   })
 
-  it('should be invalid with missing hash_id', function (done) {
-    delete sampleProof['hash_id']
+  it('should be invalid with missing hash_id_node', function (done) {
+    delete sampleProof['hash_id_node']
     cps.validate(sampleProof).should.have.property('valid', false)
-    cps.validate(sampleProof).errors[0].should.have.property('field', 'data.hash_id')
+    cps.validate(sampleProof).errors[0].should.have.property('field', 'data.hash_id_node')
     cps.validate(sampleProof).errors[0].should.have.property('message', 'is required')
     done()
   })
 
-  it('should be invalid with non-UUID hash_id', function (done) {
-    sampleProof['hash_id'] = 'abc'
+  it('should be invalid with non-UUID hash_id_node', function (done) {
+    sampleProof['hash_id_node'] = 'abc'
     cps.validate(sampleProof).should.have.property('valid', false)
-    cps.validate(sampleProof).errors[0].should.have.property('field', 'data.hash_id')
+    cps.validate(sampleProof).errors[0].should.have.property('field', 'data.hash_id_node')
     cps.validate(sampleProof).errors[0].should.have.property('message', 'pattern mismatch')
     done()
   })
 
-  it('should be invalid with missing hash_submitted_at', function (done) {
-    delete sampleProof['hash_submitted_at']
+  it('should be invalid with missing hash_submitted_node_at', function (done) {
+    delete sampleProof['hash_submitted_node_at']
     cps.validate(sampleProof).should.have.property('valid', false)
-    cps.validate(sampleProof).errors[0].should.have.property('field', 'data.hash_submitted_at')
+    cps.validate(sampleProof).errors[0].should.have.property('field', 'data.hash_submitted_node_at')
     cps.validate(sampleProof).errors[0].should.have.property('message', 'is required')
     done()
   })
 
-  it('should be invalid with non ISO8601 date hash_submitted_at', function (done) {
-    sampleProof['hash_submitted_at'] = 'March 1, 2017'
+  it('should be invalid with non ISO8601 date hash_submitted_node_at', function (done) {
+    sampleProof['hash_submitted_node_at'] = 'March 1, 2017'
     cps.validate(sampleProof).should.have.property('valid', false)
-    cps.validate(sampleProof).errors[0].should.have.property('field', 'data.hash_submitted_at')
+    cps.validate(sampleProof).errors[0].should.have.property('field', 'data.hash_submitted_node_at')
     cps.validate(sampleProof).errors[0].should.have.property('message', 'pattern mismatch')
     done()
   })
 
-  it('should be invalid with ISO8601 date hash_submitted_at in non-strict millisecond granularity form', function (done) {
-    sampleProof['hash_submitted_at'] = '2017-04-25T19:10:07.171Z'
+  it('should be invalid with ISO8601 date hash_submitted_node_at in non-strict millisecond granularity form', function (done) {
+    sampleProof['hash_submitted_node_at'] = '2017-04-25T19:10:07.171Z'
     cps.validate(sampleProof).should.have.property('valid', false)
-    cps.validate(sampleProof).errors[0].should.have.property('field', 'data.hash_submitted_at')
+    cps.validate(sampleProof).errors[0].should.have.property('field', 'data.hash_submitted_node_at')
+    cps.validate(sampleProof).errors[0].should.have.property('message', 'pattern mismatch')
+    done()
+  })
+
+  it('should be invalid with missing hash_id_core', function (done) {
+    delete sampleProof['hash_id_core']
+    cps.validate(sampleProof).should.have.property('valid', false)
+    cps.validate(sampleProof).errors[0].should.have.property('field', 'data.hash_id_core')
+    cps.validate(sampleProof).errors[0].should.have.property('message', 'is required')
+    done()
+  })
+
+  it('should be invalid with non-UUID hash_id_core', function (done) {
+    sampleProof['hash_id_core'] = 'abc'
+    cps.validate(sampleProof).should.have.property('valid', false)
+    cps.validate(sampleProof).errors[0].should.have.property('field', 'data.hash_id_core')
+    cps.validate(sampleProof).errors[0].should.have.property('message', 'pattern mismatch')
+    done()
+  })
+
+  it('should be invalid with missing hash_submitted_core_at', function (done) {
+    delete sampleProof['hash_submitted_core_at']
+    cps.validate(sampleProof).should.have.property('valid', false)
+    cps.validate(sampleProof).errors[0].should.have.property('field', 'data.hash_submitted_core_at')
+    cps.validate(sampleProof).errors[0].should.have.property('message', 'is required')
+    done()
+  })
+
+  it('should be invalid with non ISO8601 date hash_submitted_core_at', function (done) {
+    sampleProof['hash_submitted_core_at'] = 'March 1, 2017'
+    cps.validate(sampleProof).should.have.property('valid', false)
+    cps.validate(sampleProof).errors[0].should.have.property('field', 'data.hash_submitted_core_at')
+    cps.validate(sampleProof).errors[0].should.have.property('message', 'pattern mismatch')
+    done()
+  })
+
+  it('should be invalid with ISO8601 date hash_submitted_core_at in non-strict millisecond granularity form', function (done) {
+    sampleProof['hash_submitted_core_at'] = '2017-04-25T19:10:07.171Z'
+    cps.validate(sampleProof).should.have.property('valid', false)
+    cps.validate(sampleProof).errors[0].should.have.property('field', 'data.hash_submitted_core_at')
     cps.validate(sampleProof).errors[0].should.have.property('message', 'pattern mismatch')
     done()
   })
