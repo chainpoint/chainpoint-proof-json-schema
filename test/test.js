@@ -1,7 +1,7 @@
 'use strict'
 
 const cps = require('../index')
-const sampleProofFromFile = require('../docs/samples/chainpoint-proof-v3.json')
+const sampleProofFromFile = require('../docs/samples/chainpoint-proof-v3.chp.json')
 
 let sampleProof
 
