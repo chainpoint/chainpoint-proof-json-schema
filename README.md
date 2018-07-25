@@ -10,14 +10,6 @@ Take a look here to learn more about [https://chainpoint.org](https://chainpoint
 
 This package does *not* validate that the hashes in a proof are valid up to an anchor (e.g. BTC, ETH). In fact this package doesn't know what a hash is! It only validates that the proof you provide it with is a well formed proof according to its schema. Nothing more, nothing less.
 
-## Try it out
-
-Test out the schema validation with a sample proof,
-or one of your own.
-
-[https://chainpoint.org/chainpoint-proof-json-schema/](https://chainpoint.org/chainpoint-proof-json-schema/)
-
-
 ## Learn More About JSON Schema:
 
 [http://json-schema.org/](http://json-schema.org/)
