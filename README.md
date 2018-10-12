@@ -47,12 +47,7 @@ if (res.valid) {
 
 ### Browser
 
-Note : You can copy `docs/bundle.js` into your app to include in a script tag, or use the [http://rawgit.com/](http://rawgit.com/) CDN version (make sure the Git commit SHA1 in the URL is current). Rawgit is a free service and makes no guarantees for uptime.
-
-```
-  <script src="https://cdn.rawgit.com/chainpoint/chainpoint-proof-json-schema/495732a06654615f2b2d4c5716c59f769a99d3c2/docs/bundle.js"></script>
-
-```
+You can copy `docs/bundle.js` into your app to include in a script tag.
 
 Or install the npm package in a place available to your web pages and set the script `src` tag to something like the following. A window global function `chainpointProofSchema.validate()` will be available and operate the same as the Node.js example above.
 
