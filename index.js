@@ -49,9 +49,9 @@ const chainpointSchemaV3 = {
       'properties': {
         'type': {
           'description': 'A trust anchor',
-          'title': 'One of the known trust anchor types. Calendar (cal), Ethereum (eth), and Bitcoin (btc).',
-          'type': 'string',
-          'enum': ['cal', 'eth', 'btc']
+          'pattern': '^[a-z]{3,10}$',
+          'title': 'A trust anchor type. e.g. Chainpoint Calendar (cal), Ethereum (eth), or Bitcoin (btc). It must be between 3 and 10 characters in length and match the Regex /^[a-z]{3,10}$/',
+          'type': 'string'
         },
         'anchor_id': {
           'description': 'An identifier used to look up embedded anchor data. e.g. a Bitcoin transaction or block ID.',
