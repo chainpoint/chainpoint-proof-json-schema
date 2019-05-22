@@ -1,5 +1,3 @@
-'use strict'
-
 /* Copyright 2017-2018 Tierion
 * Licensed under the Apache License, Version 2.0 (the "License");
 * you may not use this file except in compliance with the License.
@@ -11,6 +9,8 @@
 * See the License for the specific language governing permissions and
 * limitations under the License.
 */
+
+const validator = require('is-my-json-valid')
 
 const chainpointSchemaV3 = {
   '$schema': 'http://json-schema.org/draft-04/schema#',
@@ -49,8 +49,8 @@ const chainpointSchemaV3 = {
       'properties': {
         'type': {
           'description': 'A trust anchor',
-          'pattern': '^[a-z]{3,10}$',
-          'title': 'A trust anchor type. e.g. Chainpoint Calendar (cal), Ethereum (eth), or Bitcoin (btc). It must be between 3 and 10 characters in length and match the Regex /^[a-z]{3,10}$/',
+          'pattern': '^(cal|btc|tcal|tbtc|eth)$',
+          'title': `Chainpoint anchor type, one of 'cal' (Calendar), 'btc' (Bitcoin), 'tcal' (Testnet Calendar), 'tbtc' (Testnet Bitcoin), or 'eth' (Ethereum) anchor types`,
           'type': 'string'
         },
         'anchor_id': {
@@ -170,7 +170,6 @@ const chainpointSchemaV3 = {
   'type': 'object'
 }
 
-const validator = require('is-my-json-valid')
 const validateSchema = validator(chainpointSchemaV3, { verbose: true })
 
 exports.validate = function (proof) {
