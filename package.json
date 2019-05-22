@@ -3,6 +3,29 @@
   "version": "1.1.0",
   "description": "A JSON Schema (Draft 04) validator for Chainpoint v3 Proofs",
   "main": "index.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha",
+    "browser": "yarn bundle && open docs/index.html",
+    "bundle": "./node_modules/.bin/browserify --standalone chainpointProofSchema index.js -o docs/bundle.js",
+    "eslint-check": "eslint --print-config . | eslint-config-prettier-check"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "linters": {
+      "*.js": [
+        "eslint --fix",
+        "git add"
+      ],
+      "*.{json,css,md}": [
+        "prettier --write",
+        "git add"
+      ]
+    }
+  },
   "repository": "https://github.com/chainpoint/chainpoint-proof-json-schema",
   "author": "Jason Bukowski <jason@tierion.com>",
   "license": "Apache-2.0",
@@ -12,11 +35,12 @@
   "devDependencies": {
     "browserify": "^16.2.3",
     "mocha": "^5.2.0",
-    "should": "^13.2.3"
-  },
-  "scripts": {
-    "test": "node_modules/.bin/mocha",
-    "browser": "yarn bundle && open docs/index.html",
-    "bundle": "./node_modules/.bin/browserify --standalone chainpointProofSchema index.js -o docs/bundle.js"
+    "should": "^13.2.3",
+    "eslint": "^5.16.0",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
+    "prettier": "^1.17.0"
   }
 }

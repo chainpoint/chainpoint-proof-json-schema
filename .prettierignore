@@ -1,0 +1,3 @@
+ui/build/*
+ui/node_modules/*
+docs/*
