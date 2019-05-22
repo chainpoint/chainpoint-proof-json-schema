@@ -1,5 +1,3 @@
-'use strict'
-
 const cps = require('../index')
 const sampleProofFromFile = require('../docs/samples/chainpoint-proof-v3.chp.json')
 
@@ -349,11 +347,11 @@ describe('proof.branches[0].ops[0].anchors', function () {
     done()
   })
 
-  it('should be valid with an arbitrary anchor type', function (done) {
+  it('should NOT be valid with an unsupported anchor type', function (done) {
     // get the last ops, which should be an anchor
     let lastAnchorIndex = sampleProof.branches[0].ops.length - 1
     sampleProof.branches[0].ops[lastAnchorIndex].anchors[0].type = 'foo'
-    cps.validate(sampleProof).should.have.property('valid', true)
+    cps.validate(sampleProof).should.have.property('valid', false)
     done()
   })
 
@@ -405,7 +403,6 @@ describe('proof.branches[0].ops[0].anchors', function () {
     cps.validate(sampleProof).should.have.property('valid', true)
     done()
   })
-
   it('should be invalid with malformed optional uris', function (done) {
     // get the last ops, which should be an anchor
     let lastAnchorIndex = sampleProof.branches[0].ops.length - 1
