@@ -1,5 +1,9 @@
 # Chainpoint Proof v3 JSON Schema Validator
 
+[![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 [![npm version](https://badge.fury.io/js/chainpoint-proof-json-schema.svg)](https://badge.fury.io/js/chainpoint-proof-json-schema)
 
 A simple npm package to validate a Chainpoint v3 Proof, in JSON format, against a JSON Schema (Draft 04).
