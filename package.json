@@ -1,7 +1,7 @@
 {
   "name": "chainpoint-proof-json-schema",
-  "version": "1.1.0",
-  "description": "A JSON Schema (Draft 04) validator for Chainpoint v3 Proofs",
+  "version": "1.2.0",
+  "description": "A JSON Schema (Draft 04) validator for Chainpoint v4 Proofs",
   "main": "index.js",
   "scripts": {
     "test": "node_modules/.bin/mocha",
