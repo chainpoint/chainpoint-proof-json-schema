@@ -12,7 +12,7 @@
 
 const validator = require('is-my-json-valid')
 
-const chainpointSchemaV3 = {
+const chainpointSchemaV4 = {
   $schema: 'http://json-schema.org/draft-04/schema#',
   additionalProperties: false,
   definitions: {
@@ -125,15 +125,15 @@ const chainpointSchemaV3 = {
       type: 'object'
     }
   },
-  description: 'This document contains a schema for validating an instance of a Chainpoint v3 Proof.',
+  description: 'This document contains a schema for validating an instance of a Chainpoint v4 Proof.',
   id: 'http://example.com/example.json',
   properties: {
     '@context': {
-      default: 'https://w3id.org/chainpoint/v3',
+      default: 'https://w3id.org/chainpoint/v4',
       description: 'A registered JSON-LD context URI for this document type',
       title: 'The JSON-LD @context',
       type: 'string',
-      enum: ['https://w3id.org/chainpoint/v3']
+      enum: ['https://w3id.org/chainpoint/v4']
     },
     type: {
       default: 'Chainpoint',
@@ -142,6 +142,13 @@ const chainpointSchemaV3 = {
       type: 'string',
       enum: ['Chainpoint']
     },
+    proof_id: {
+      description:
+        'The Type 1 (timestamp) UUID used to identify and track a hash or retrieve a Chainpoint proof',
+      pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$',
+      title: 'A Type 1 (timestamp) UUID that identifies a hash',
+      type: 'string'
+    },
     hash: {
       description:
         'The even length Hexadecimal output of a cryptographic one-way hash function representing the data to be anchored.',
@@ -149,28 +156,7 @@ const chainpointSchemaV3 = {
       title: 'The hash to be anchored',
       type: 'string'
     },
-    hash_id_node: {
-      description:
-        'The Type 1 (timestamp) UUID used to identify and track a hash or retrieve a Chainpoint proof from a Chainpoint Node',
-      pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$',
-      title: 'A Type 1 (timestamp) UUID that identifies a hash',
-      type: 'string'
-    },
-    hash_submitted_node_at: {
-      description:
-        'The timestamp, in ISO8601 form, extracted from the hash_id_node that represents the time the hash was submitted to Chainpoint Node. Must be in "2017-03-23T11:30:33Z" form with granularity only to seconds and UTC zone.',
-      pattern: '^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$',
-      title: 'An ISO8601 timestamp, extracted from hash_id_node',
-      type: 'string'
-    },
-    hash_id_core: {
-      description:
-        'The Type 1 (timestamp) UUID used to by Chainpoint Node to identify and track a hash or retrieve a Chainpoint proof from Chainpoint Core',
-      pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$',
-      title: 'A Type 1 (timestamp) UUID that identifies a hash',
-      type: 'string'
-    },
-    hash_submitted_core_at: {
+    hash_received: {
       description:
         'The timestamp, in ISO8601 form, extracted from the hash_id_core that represents the time the hash was submitted to Chainpoint Core. Must be in "2017-03-23T11:30:33Z" form with granularity only to seconds and UTC zone.',
       pattern: '^\\d{4}-\\d\\d-\\d\\dT\\d\\d:\\d\\d:\\d\\dZ$',
@@ -188,18 +174,16 @@ const chainpointSchemaV3 = {
   required: [
     '@context',
     'type',
+    'proof_id',
     'hash',
-    'hash_id_node',
-    'hash_submitted_node_at',
-    'hash_id_core',
-    'hash_submitted_core_at',
+    'hash_received',
     'branches'
   ],
-  title: 'Chainpoint v3 JSON Schema.',
+  title: 'Chainpoint v4 JSON Schema.',
   type: 'object'
 }
 
-const validateSchema = validator(chainpointSchemaV3, { verbose: true })
+const validateSchema = validator(chainpointSchemaV4, { verbose: true })
 
 exports.validate = function(proof) {
   // Return both in a single object since the validator
