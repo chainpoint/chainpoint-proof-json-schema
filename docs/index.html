@@ -2,11 +2,11 @@
 <html>
 
 <head>
-  <title>Chainpoint Proof (v3) JSON Schema Validation</title>
+  <title>Chainpoint Proof (v4) JSON Schema Validation</title>
 </head>
 
 <body>
-  <h2>Chainpoint Proof (v3) JSON Schema Validator</h2>
+  <h2>Chainpoint Proof (v4) JSON Schema Validator</h2>
 
   <p><strong>Important!</strong> This demo does *not* validate that the hashes<br>
   in a proof are valid up to an anchor (e.g. BTC, ETH). In fact this page doesn't<br>
@@ -31,7 +31,7 @@
     $('#proof').val('{}')
 
     // load a full sample (will not work without web server using file:// url)
-    $.getJSON('samples/chainpoint-proof-v3.chp.json', function (data) {
+    $.getJSON('samples/chainpoint-proof-v4.chp.json', function (data) {
       $('#proof').val(JSON.stringify(data, null, '    '))
     });
 
