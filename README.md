@@ -1,4 +1,8 @@
-# Todo: Sample file update to V4 format
+# IMPORTANT
+
+If you're looking to validate proofs schemas from the existing Chainpoint V3 Network (chainpoint-services), use version 1.1.0. The latest update is for the unreleased V4 proof schema.
+
+This package does _not_ validate that the hashes in a proof are valid up to an anchor (e.g. BTC, ETH). In fact this package doesn't know what a hash is! It only validates that the proof you provide it with is a well formed proof according to its schema. Nothing more, nothing less.
 
 # Chainpoint Proof v4 JSON Schema Validator
 
@@ -11,10 +15,6 @@
 A simple npm package to validate a Chainpoint v4 Proof, in JSON format, against a JSON Schema (Draft 04).
 
 Take a look here to learn more about [https://chainpoint.org](https://chainpoint.org)
-
-## IMPORTANT
-
-This package does _not_ validate that the hashes in a proof are valid up to an anchor (e.g. BTC, ETH). In fact this package doesn't know what a hash is! It only validates that the proof you provide it with is a well formed proof according to its schema. Nothing more, nothing less.
 
 ## Learn More About JSON Schema:
 
