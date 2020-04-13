@@ -249,102 +249,102 @@ describe('proof.branches[0].ops', function() {
   })
 })
 
-describe('proof.branches[0].ops[0].anchors', function() {
+describe('proof.branches[0].branches[0].ops[0].anchors', function() {
   it('should be valid if empty', function(done) {
-    sampleProof.branches[0].ops[0].anchors = []
+    sampleProof.branches[0].branches[0].ops[0].anchors = []
     cps.validate(sampleProof).should.have.property('valid', true)
     done()
   })
 
   it('should be valid with a cal type', function(done) {
-    let lastAnchorIndex = sampleProof.branches[0].ops.length - 1
-    sampleProof.branches[0].ops[lastAnchorIndex].anchors[0].type = 'cal'
+    let lastAnchorIndex = sampleProof.branches[0].branches[0].ops.length - 1
+    sampleProof.branches[0].branches[0].ops[lastAnchorIndex].anchors[0].type = 'cal'
     cps.validate(sampleProof).should.have.property('valid', true)
     done()
   })
 
   it('should be valid with a eth type', function(done) {
-    let lastAnchorIndex = sampleProof.branches[0].ops.length - 1
-    sampleProof.branches[0].ops[lastAnchorIndex].anchors[0].type = 'eth'
+    let lastAnchorIndex = sampleProof.branches[0].branches[0].ops.length - 1
+    sampleProof.branches[0].branches[0].ops[lastAnchorIndex].anchors[0].type = 'eth'
     cps.validate(sampleProof).should.have.property('valid', true)
     done()
   })
 
   it('should be valid with a btc type', function(done) {
-    let lastAnchorIndex = sampleProof.branches[0].ops.length - 1
-    sampleProof.branches[0].ops[lastAnchorIndex].anchors[0].type = 'btc'
+    let lastAnchorIndex = sampleProof.branches[0].branches[0].ops.length - 1
+    sampleProof.branches[0].branches[0].ops[lastAnchorIndex].anchors[0].type = 'btc'
     cps.validate(sampleProof).should.have.property('valid', true)
     done()
   })
 
   it('should be invalid with an empty type', function(done) {
     // get the last ops, which should be an anchor
-    let lastAnchorIndex = sampleProof.branches[0].ops.length - 1
-    sampleProof.branches[0].ops[lastAnchorIndex].anchors[0].type = null
+    let lastAnchorIndex = sampleProof.branches[0].branches[0].ops.length - 1
+    sampleProof.branches[0].branches[0].ops[lastAnchorIndex].anchors[0].type = null
     cps.validate(sampleProof).should.have.property('valid', false)
     done()
   })
 
   it('should be invalid with an incorrectly cased type', function(done) {
     // get the last ops, which should be an anchor
-    let lastAnchorIndex = sampleProof.branches[0].ops.length - 1
-    sampleProof.branches[0].ops[lastAnchorIndex].anchors[0].type = 'bTc'
+    let lastAnchorIndex = sampleProof.branches[0].branches[0].ops.length - 1
+    sampleProof.branches[0].branches[0].ops[lastAnchorIndex].anchors[0].type = 'bTc'
     cps.validate(sampleProof).should.have.property('valid', false)
     done()
   })
 
   it('should be invalid with a too short type', function(done) {
     // get the last ops, which should be an anchor
-    let lastAnchorIndex = sampleProof.branches[0].ops.length - 1
-    sampleProof.branches[0].ops[lastAnchorIndex].anchors[0].type = 'ab'
+    let lastAnchorIndex = sampleProof.branches[0].branches[0].ops.length - 1
+    sampleProof.branches[0].branches[0].ops[lastAnchorIndex].anchors[0].type = 'ab'
     cps.validate(sampleProof).should.have.property('valid', false)
     done()
   })
 
   it('should be invalid with a too long type', function(done) {
     // get the last ops, which should be an anchor
-    let lastAnchorIndex = sampleProof.branches[0].ops.length - 1
-    sampleProof.branches[0].ops[lastAnchorIndex].anchors[0].type = 'abcdefghijk'
+    let lastAnchorIndex = sampleProof.branches[0].branches[0].ops.length - 1
+    sampleProof.branches[0].branches[0].ops[lastAnchorIndex].anchors[0].type = 'abcdefghijk'
     cps.validate(sampleProof).should.have.property('valid', false)
     done()
   })
 
   it('should NOT be valid with an unsupported anchor type', function(done) {
     // get the last ops, which should be an anchor
-    let lastAnchorIndex = sampleProof.branches[0].ops.length - 1
-    sampleProof.branches[0].ops[lastAnchorIndex].anchors[0].type = 'foo'
+    let lastAnchorIndex = sampleProof.branches[0].branches[0].ops.length - 1
+    sampleProof.branches[0].branches[0].ops[lastAnchorIndex].anchors[0].type = 'foo'
     cps.validate(sampleProof).should.have.property('valid', false)
     done()
   })
 
   it('should be valid with an unknown anchor_id', function(done) {
     // get the last ops, which should be an anchor
-    let lastAnchorIndex = sampleProof.branches[0].ops.length - 1
-    sampleProof.branches[0].ops[lastAnchorIndex].anchors[0].anchor_id = 'foo'
+    let lastAnchorIndex = sampleProof.branches[0].branches[0].ops.length - 1
+    sampleProof.branches[0].branches[0].ops[lastAnchorIndex].anchors[0].anchor_id = 'foo'
     cps.validate(sampleProof).should.have.property('valid', true)
     done()
   })
 
   it('should be invalid with an empty anchor_id', function(done) {
     // get the last ops, which should be an anchor
-    let lastAnchorIndex = sampleProof.branches[0].ops.length - 1
-    sampleProof.branches[0].ops[lastAnchorIndex].anchors[0].anchor_id = null
+    let lastAnchorIndex = sampleProof.branches[0].branches[0].ops.length - 1
+    sampleProof.branches[0].branches[0].ops[lastAnchorIndex].anchors[0].anchor_id = null
     cps.validate(sampleProof).should.have.property('valid', false)
     done()
   })
 
   it('should be invalid with an integer anchor_id', function(done) {
     // get the last ops, which should be an anchor
-    let lastAnchorIndex = sampleProof.branches[0].ops.length - 1
-    sampleProof.branches[0].ops[lastAnchorIndex].anchors[0].anchor_id = 123
+    let lastAnchorIndex = sampleProof.branches[0].branches[0].ops.length - 1
+    sampleProof.branches[0].branches[0].ops[lastAnchorIndex].anchors[0].anchor_id = 123
     cps.validate(sampleProof).should.have.property('valid', false)
     done()
   })
 
   it('should be valid with no optional uris', function(done) {
     // get the last ops, which should be an anchor
-    let lastAnchorIndex = sampleProof.branches[0].ops.length - 1
-    let anchor = sampleProof.branches[0].ops[lastAnchorIndex].anchors[0]
+    let lastAnchorIndex = sampleProof.branches[0].branches[0].ops.length - 1
+    let anchor = sampleProof.branches[0].branches[0].ops[lastAnchorIndex].anchors[0]
     delete anchor.uris
     cps.validate(sampleProof).should.have.property('valid', true)
     done()
@@ -352,16 +352,16 @@ describe('proof.branches[0].ops[0].anchors', function() {
 
   it('should be valid with empty optional uris', function(done) {
     // get the last ops, which should be an anchor
-    let lastAnchorIndex = sampleProof.branches[0].ops.length - 1
-    sampleProof.branches[0].ops[lastAnchorIndex].anchors[0].uris = []
+    let lastAnchorIndex = sampleProof.branches[0].branches[0].ops.length - 1
+    sampleProof.branches[0].branches[0].ops[lastAnchorIndex].anchors[0].uris = []
     cps.validate(sampleProof).should.have.property('valid', true)
     done()
   })
 
   it('should be valid with valid optional uris', function(done) {
     // get the last ops, which should be an anchor
-    let lastAnchorIndex = sampleProof.branches[0].ops.length - 1
-    sampleProof.branches[0].ops[lastAnchorIndex].anchors[0].uris = [
+    let lastAnchorIndex = sampleProof.branches[0].branches[0].ops.length - 1
+    sampleProof.branches[0].branches[0].ops[lastAnchorIndex].anchors[0].uris = [
       'https://a.cal.chainpoint.org',
       'https://b.cal.chainpoint.org'
     ]
@@ -370,8 +370,8 @@ describe('proof.branches[0].ops[0].anchors', function() {
   })
   it('should be invalid with malformed optional uris', function(done) {
     // get the last ops, which should be an anchor
-    let lastAnchorIndex = sampleProof.branches[0].ops.length - 1
-    sampleProof.branches[0].ops[lastAnchorIndex].anchors[0].uris = ['foo', 'bar']
+    let lastAnchorIndex = sampleProof.branches[0].branches[0].ops.length - 1
+    sampleProof.branches[0].branches[0].ops[lastAnchorIndex].anchors[0].uris = ['foo', 'bar']
     cps.validate(sampleProof).should.have.property('valid', false)
     cps.validate(sampleProof).errors[0].should.have.property('field', 'data.branches.0')
     cps.validate(sampleProof).errors[0].should.have.property('message', 'referenced schema does not match')
