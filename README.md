@@ -1,6 +1,6 @@
 # IMPORTANT
 
-If you're looking to validate proofs schemas from the existing Chainpoint V3 Network (chainpoint-services), use version 1.1.0. The latest update is for the unreleased V4 proof schema.
+The package is for the Chainpont v4 proof schema. If you're looking to validate proofs schemas from the older Chainpoint V3 Network (chainpoint-services), use version 1.1.0.
 
 This package does _not_ validate that the hashes in a proof are valid up to an anchor (e.g. BTC, ETH). In fact this package doesn't know what a hash is! It only validates that the proof you provide it with is a well formed proof according to its schema. Nothing more, nothing less.
 

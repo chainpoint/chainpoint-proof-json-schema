@@ -143,8 +143,7 @@ const chainpointSchemaV4 = {
       enum: ['Chainpoint']
     },
     proof_id: {
-      description:
-        'The Type 1 (timestamp) UUID used to identify and track a hash or retrieve a Chainpoint proof',
+      description: 'The Type 1 (timestamp) UUID used to identify and track a hash or retrieve a Chainpoint proof',
       pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$',
       title: 'A Type 1 (timestamp) UUID that identifies a hash',
       type: 'string'
@@ -171,14 +170,7 @@ const chainpointSchemaV4 = {
       uniqueItems: true
     }
   },
-  required: [
-    '@context',
-    'type',
-    'proof_id',
-    'hash',
-    'hash_received',
-    'branches'
-  ],
+  required: ['@context', 'type', 'proof_id', 'hash', 'hash_received', 'branches'],
   title: 'Chainpoint v4 JSON Schema.',
   type: 'object'
 }
