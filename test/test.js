@@ -84,7 +84,7 @@ data.forEach(function(sampleFile) {
       sampleProof['proof_id'] = 'abc'
       cps.validate(sampleProof).should.have.property('valid', false)
       cps.validate(sampleProof).errors[0].should.have.property('field', 'data.proof_id')
-      cps.validate(sampleProof).errors[0].should.have.property('message', 'has less length than allowed')
+      cps.validate(sampleProof).errors[0].should.have.property('message', 'pattern mismatch')
       done()
     })
 

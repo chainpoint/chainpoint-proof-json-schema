@@ -145,9 +145,9 @@ const chainpointSchemaV5 = {
     proof_id: {
       description: 'A UUIDv1 or ULID used to identify and track a hash or retrieve a Chainpoint proof',
       title: 'A Type 1 (timestamp) UUID or ULID that identifies a hash',
-      type: 'string',
-      minLength: 26,
-      maxLength: 38
+      pattern:
+        '^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12})|([0123456789ABCDEFGHJKMNPQRSTVWXYZ]{26})$',
+      type: 'string'
     },
     hash: {
       description:
