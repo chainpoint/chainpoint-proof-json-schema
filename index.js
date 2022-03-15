@@ -12,7 +12,7 @@
 
 const validator = require('is-my-json-valid')
 
-const chainpointSchemaV4 = {
+const chainpointSchemaV5 = {
   $schema: 'http://json-schema.org/draft-04/schema#',
   additionalProperties: false,
   definitions: {
@@ -143,10 +143,11 @@ const chainpointSchemaV4 = {
       enum: ['Chainpoint']
     },
     proof_id: {
-      description: 'The Type 1 (timestamp) UUID used to identify and track a hash or retrieve a Chainpoint proof',
-      pattern: '^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$',
-      title: 'A Type 1 (timestamp) UUID that identifies a hash',
-      type: 'string'
+      description: 'A UUIDv1 or ULID used to identify and track a hash or retrieve a Chainpoint proof',
+      title: 'A Type 1 (timestamp) UUID or ULID that identifies a hash',
+      type: 'string',
+      minLength: 26,
+      maxLength: 38
     },
     hash: {
       description:
@@ -171,11 +172,11 @@ const chainpointSchemaV4 = {
     }
   },
   required: ['@context', 'type', 'proof_id', 'hash', 'hash_received', 'branches'],
-  title: 'Chainpoint v4 JSON Schema.',
+  title: 'Chainpoint v5 JSON Schema.',
   type: 'object'
 }
 
-const validateSchema = validator(chainpointSchemaV4, { verbose: true })
+const validateSchema = validator(chainpointSchemaV5, { verbose: true })
 
 exports.validate = function(proof) {
   // Return both in a single object since the validator
